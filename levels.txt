@@ -1,3 +1,0 @@
-1.drawing a circle at the middle: "done"
-2.make it moveable by button click: "done"
-3.create border
