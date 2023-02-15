@@ -61,19 +61,20 @@ class Canvas {
   }
   public colision() {
     if (
-      this.ball.x + this.ball.R === this.RightPaddle.x &&
-      this.ball.y > this.RightPaddle.y && 
+      this.ball.x + this.ball.R > this.RightPaddle.x &&
+      this.ball.x - this.ball.R < this.RightPaddle.x + this.RightPaddle.w / 2 &&
+      this.ball.y > this.RightPaddle.y &&
       this.ball.y < this.RightPaddle.y + this.RightPaddle.h
     ) {
       this.ball.direction.right = false;
       this.ball.direction.left = true;
     }
     if (
-        this.ball.x - this.ball.R === this.LeftPaddle.x + this.LeftPaddle.w &&
-        this.ball.y > this.LeftPaddle.y &&
-        this.ball.y < this.LeftPaddle.y + this.LeftPaddle.h
-
-      ) {
+      this.ball.x + this.ball.R > this.LeftPaddle.x &&
+      this.ball.x - this.ball.R < this.LeftPaddle.x + this.LeftPaddle.w / 2 &&
+      this.ball.y > this.LeftPaddle.y &&
+      this.ball.y < this.LeftPaddle.y + this.LeftPaddle.h
+    ) {
       this.ball.direction.right = true;
       this.ball.direction.left = false;
     }
@@ -110,7 +111,7 @@ class Ball {
       right: true,
       up: true,
     };
-    this.speed = 5;
+    this.speed = 7;
   }
   public draw() {
     this.ctx.arc(this.x, this.y, this.R, this.startAngle, this.endAngle);
